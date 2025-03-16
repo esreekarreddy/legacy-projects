@@ -1,0 +1,208 @@
+/* Dynamically generated animations */
+:root {
+  --primary-color: #3a7bd5;
+  --primary-light: rgba(58, 123, 213, 0.3);
+  --primary-lighter: rgba(58, 123, 213, 0.1);
+  --primary-rgb: 58, 123, 213;
+  --secondary-color: #2cb5e8;
+  --secondary-light: rgba(44, 181, 232, 0.3);
+  --secondary-lighter: rgba(44, 181, 232, 0.1);
+  --secondary-rgb: 44, 181, 232;
+  --accent-color: #ff7f50;
+  --accent-light: rgba(255, 127, 80, 0.3);
+  --accent-lighter: rgba(255, 127, 80, 0.1);
+  --accent-rgb: 255, 127, 80;
+  --dark-color: #1a365d;
+  --light-gray: #f7fafc;
+}
+
+/* Particle animations - unique movement paths for each one */
+{% for particle in particles %}
+@keyframes float-particle-{{ particle.index }} {
+  0% { 
+    transform: translate(0, 0) scale(1); 
+    opacity: {{ particle.opacity_start }}; 
+  }
+  33% { 
+    transform: translate({{ particle.x1 }}px, {{ particle.y1 }}px) scale(1.1); 
+    opacity: {{ particle.opacity_mid }}; 
+  }
+  66% { 
+    transform: translate({{ particle.x2 }}px, {{ particle.y2 }}px) scale(0.9); 
+    opacity: {{ particle.opacity_start }}; 
+  }
+  100% { 
+    transform: translate({{ particle.x3 }}px, {{ particle.y3 }}px) scale(1); 
+    opacity: {{ particle.opacity_end }}; 
+  }
+}
+
+.particle-{{ particle.index }} {
+  animation: float-particle-{{ particle.index }} {{ particle.duration }}s infinite alternate ease-in-out;
+  animation-delay: {{ particle.delay }}s;
+  border-radius: {% if loop.index % 3 == 0 %}50%{% elif loop.index % 3 == 1 %}30%{% else %}4px{% endif %};
+  background-color: {% if loop.index % 3 == 0 %}var(--primary-light){% elif loop.index % 3 == 1 %}var(--secondary-light){% else %}var(--accent-light){% endif %};
+  box-shadow: 0 0 15px {% if loop.index % 3 == 0 %}var(--primary-lighter){% elif loop.index % 3 == 1 %}var(--secondary-lighter){% else %}var(--accent-lighter){% endif %};
+  width: {{ 5 + (loop.index % 3) * 5 }}px;
+  height: {{ 5 + (loop.index % 3) * 5 }}px;
+}
+{% endfor %}
+
+/* Pulse animations - different timing and scale for visual interest */
+{% for pulse in pulses %}
+@keyframes pulse-{{ pulse.index }} {
+  0% { transform: scale({{ pulse.scale_start }}); opacity: 0.8; }
+  50% { transform: scale({{ pulse.scale_mid }}); opacity: 0.4; }
+  100% { transform: scale({{ pulse.scale_end }}); opacity: 0.8; }
+}
+
+.pulse-{{ pulse.index }} {
+  animation: pulse-{{ pulse.index }} {{ pulse.duration }}s infinite ease-in-out;
+  animation-delay: {{ pulse.delay }}s;
+  background: {% if loop.index % 3 == 0 %}var(--primary-light){% elif loop.index % 3 == 1 %}var(--secondary-light){% else %}var(--accent-light){% endif %};
+}
+{% endfor %}
+
+/* Shine/Gloss effects for buttons and interactive elements */
+{% for shine in shines %}
+@keyframes shine-{{ shine.index }} {
+  0% { 
+    transform: translateX(-100%) rotate({{ shine.angle }}deg); 
+  }
+  100% { 
+    transform: translateX(200%) rotate({{ shine.angle }}deg); 
+  }
+}
+
+.shine-{{ shine.index }} {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-{{ shine.index }}::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    {{ shine.angle }}deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: translateX(-100%) rotate({{ shine.angle }}deg);
+  animation: shine-{{ shine.index }} {{ shine.duration }}s infinite;
+  animation-delay: {{ shine.delay }}s;
+}
+{% endfor %}
+
+/* Gradient text animations */
+@keyframes gradient-text-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, 
+    var(--primary-color), 
+    var(--secondary-color), 
+    var(--accent-color), 
+    var(--secondary-color), 
+    var(--primary-color));
+  background-size: 300% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: gradient-text-flow 8s ease infinite;
+}
+
+/* Smooth fade-in animations for page elements */
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+/* Add delay to sequential fade-ins */
+{% for i in range(1, 10) %}
+.fade-in-{{ i }} {
+  animation-delay: {{ i * 0.1 }}s;
+}
+{% endfor %}
+
+/* Hover effects for cards */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Button animations with fixed RGB values */
+.btn-pulse {
+  position: relative;
+}
+
+.btn-pulse::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 rgba(58, 123, 213, 0.7); /* Use direct values instead of var() */
+  animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(58, 123, 213, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(58, 123, 213, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(58, 123, 213, 0); }
+}
+
+/* Loading spinner animation */
+@keyframes spinner-border {
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border: 0.25rem solid var(--light-gray);
+  border-right-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spinner-border 0.75s linear infinite;
+}
+
+/* Subtle background animations */
+@keyframes bg-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-bg {
+  background: linear-gradient(270deg, 
+    var(--light-gray), 
+    white, 
+    var(--light-gray));
+  background-size: 600% 600%;
+  animation: bg-shift 10s ease infinite;
+}

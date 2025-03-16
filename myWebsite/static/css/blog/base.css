@@ -1,0 +1,64 @@
+/* Base styles and variables - consistent with main theme */
+:root {
+    /* Use same colors as main site */
+    --primary-color: #3a7bd5;
+    --secondary-color: #2cb5e8;
+    --accent-color: #ff7f50;
+    --accent-light: rgba(58, 123, 213, 0.1);
+    --accent-dark: #1a365d;
+    
+    --text-color: #2d3748;
+    --light-text: #718096;
+    --background: #f7fafc;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --highlight: #ffeaa7;
+    
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
+    
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    
+    --transition-fast: 0.2s;
+    --transition-normal: 0.3s;
+    --transition-slow: 0.5s;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Common Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
+
+@keyframes float-particle {
+    0% { transform: translate(0, 0); opacity: 0.6; }
+    25% { transform: translate(100px, -50px); opacity: 0.8; }
+    50% { transform: translate(200px, 50px); opacity: 0.6; }
+    75% { transform: translate(100px, 150px); opacity: 0.8; }
+    100% { transform: translate(0, 0); opacity: 0.6; }
+}

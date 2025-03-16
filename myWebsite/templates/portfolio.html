@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title %}E-Portfolio{% endblock %}
+
+{% block content %}
+<section class="content bio-content">
+    <div class="bio-header">
+        <h1>Professional Portfolio</h1>
+        <div class="bio-underline"></div>
+    </div>
+    
+    <div class="bio-text">
+        <p>Welcome to my professional portfolio. Here, I showcase my academic achievements, technical skills, and projects that demonstrate my capabilities to potential employers.</p>
+    </div>
+    
+    <section class="education">
+        <h2>Education</h2>
+        <div class="education-item">
+            <h3>University of Technology Sydney</h3>
+            <p class="date">2020 - 2023</p>
+            <p class="degree">Bachelor of Information Technology</p>
+            <p>Key courses: Software Development, Database Management, Web Development, Cybersecurity</p>
+            <p>GPA: 3.8/4.0</p>
+        </div>
+    </section>
+
+    <section class="projects">
+        <h2>Projects</h2>
+        
+        <div class="project-item">
+            <h3>E-Commerce Platform</h3>
+            <p class="date">2022</p>
+            <p>Developed a full-stack e-commerce application using React, Node.js, and MongoDB.</p>
+            <ul>
+                <li>Implemented secure payment processing with Stripe API</li>
+                <li>Created responsive design for mobile and desktop users</li>
+                <li>Integrated inventory management system</li>
+            </ul>
+        </div>
+
+        <div class="project-item">
+            <h3>Machine Learning Classification System</h3>
+            <p class="date">2021</p>
+            <p>Built a classification system using Python and scikit-learn for predicting customer behavior.</p>
+            <ul>
+                <li>Achieved 92% accuracy on test dataset</li>
+                <li>Utilized data visualization tools to present findings</li>
+                <li>Implemented feature engineering to improve model performance</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="skills">
+        <h2>Technical Skills</h2>
+        
+        <div class="skill-category">
+            <h3>Programming Languages</h3>
+            <div class="skill-tags">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">HTML/CSS</span>
+            </div>
+        </div>
+
+        <div class="skill-category">
+            <h3>Frameworks & Libraries</h3>
+            <div class="skill-tags">
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Django</span>
+                <span class="skill-tag">TensorFlow</span>
+                <span class="skill-tag">Bootstrap</span>
+            </div>
+        </div>
+
+        <div class="skill-category">
+            <h3>Tools & Platforms</h3>
+            <div class="skill-tags">
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">MongoDB</span>
+                <span class="skill-tag">PostgreSQL</span>
+            </div>
+        </div>
+    </section>
+</section>
+{% endblock %}

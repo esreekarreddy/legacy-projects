@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block title %}Uncharted Fragments | Blog{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/blog/blog.css') }}">
+{% endblock %}
+
+{% block content %}
+<!-- Include welcome overlay for first-time visitors -->
+{% include 'blog/welcome-overlay.html' %}
+
+<!-- Hero Section -->
+<section class="hero blog-hero">
+    <h1>Uncharted Fragments</h1>
+    <p>Exploring ideas at the intersection of technology, creativity, and human experience</p>
+    
+    <div class="blog-animation">
+        <div class="animated-shape circle"></div>
+        <div class="animated-shape triangle"></div>
+        <div class="animated-shape square"></div>
+    </div>
+</section>
+
+<!-- Featured Post -->
+{% if posts and posts|length > 0 %}
+<section class="featured-post">
+    <div class="featured-post-content">
+        <div class="featured-label">Featured Post</div>
+        <h2>{{ posts[0].title }}</h2>
+        <p class="post-date">{{ posts[0].date }}</p>
+        <p class="post-excerpt">{{ posts[0].excerpt }}</p>
+        <a href="{{ url_for('blog_post', post_id=posts[0].id) }}" class="featured-cta">Read Full Post →</a>
+    </div>
+    <div class="featured-post-graphic">
+        <div class="graphic-element dot-pattern"></div>
+        <div class="graphic-element wave-line"></div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Blog Posts Grid -->
+<section class="blog-grid-container">
+    <div class="blog-posts-heading">
+        <h2>All Posts</h2>
+        <div class="blog-underline"></div>
+    </div>
+    
+    <div class="blog-grid">
+        {% for post in posts %}
+            {% if loop.index > 1 %}  <!-- Skip the first post as it's featured -->
+            <div class="blog-card">
+                <div class="blog-card-graphic">
+                    <div class="blog-card-icon">{{ loop.index -1 }}</div>
+                </div>
+                <div class="blog-card-content">
+                    <h3>{{ post.title }}</h3>
+                    <p class="post-date">{{ post.date }}</p>
+                    <p class="post-excerpt">{{ post.excerpt }}</p>
+                    <a href="{{ url_for('blog_post', post_id=post.id) }}" class="read-more">Read More →</a>
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Decorative Element -->
+<div class="decorative-section">
+    <div class="floating-shapes">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+    </div>
+    <p class="inspiration-text">"The only way to discover the limits of the possible is to go beyond them into the impossible."</p>
+    <p class="inspiration-author">— Arthur C. Clarke</p>
+</div>
+
+<!-- Newsletter Section -->
+<section class="newsletter-section">
+    <div class="newsletter-content">
+        <h2>Stay Updated</h2>
+        <p>Get notified when new content is published</p>
+        <form class="subscribe-form">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit" class="subscribe-btn">Subscribe</button>
+        </form>
+    </div>
+    <div class="newsletter-graphic">
+        <div class="envelope-icon">✉️</div>
+        <div class="pulse-circle"></div>
+    </div>
+</section>
+{% endblock %}

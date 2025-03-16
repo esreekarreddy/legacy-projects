@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome to My Space{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero" style="padding: 40px 20px;">
+    <h1>Welcome to My Digital Universe</h1>
+    <p>Where technology meets creativity, AI fuels innovation, and ideas come to life.</p>
+    <div class="hero-animation">
+        <div class="animated-circle"></div>
+        <div class="animated-circle"></div>
+        <div class="animated-circle"></div>
+    </div>
+</section>
+
+<!-- First Row Content -->
+<section class="content">
+    <div class="card">
+        <div class="icon">📖</div>
+        <h3>Uncharted Fragments</h3>
+        <p>Journey through my personal blog where I explore ideas at the intersection of technology and humanity.</p>
+        <a href="{{ url_for('blog_index') }}" id="blogHomeLink">Discover Stories →</a>
+    </div>
+
+    <div class="card">
+        <div class="icon">🤖</div>
+        <h3>AI Explorations</h3>
+        <p>Dive into the fascinating world of artificial intelligence, machine learning, and the future of human-computer interaction.</p>
+        <a href="#">Coming Soon →</a>
+    </div>
+
+    <div class="card">
+        <div class="icon">📚</div>
+        <h3>E-Portfolio</h3>
+        <p>Explore my academic achievements, technical skills, and professional projects that demonstrate my capabilities.</p>
+        <a href="{{ url_for('portfolio') }}">View Portfolio →</a>
+    </div>
+</section>
+
+<!-- Second Row Content -->
+<section class="content">
+    <div class="card">
+        <div class="icon">🤝</div>
+        <h3>Volunteering</h3>
+        <p>Learn about my community service experiences at UTS Sydney and how they've shaped my personal and professional growth.</p>
+        <a href="{{ url_for('volunteering') }}">See Experiences →</a>
+    </div>
+
+    <div class="card">
+        <div class="icon">🎨</div>
+        <h3>Creative Shop</h3>
+        <p>Browse unique digital creations, AI-generated art, and innovative designs that blend technology with creativity.</p>
+        <a href="#">Coming Soon →</a>
+    </div>
+</section>
+
+<section class="quote-section">
+    <blockquote>"The future belongs to those who believe in the beauty of their dreams."</blockquote>
+    <cite>— Eleanor Roosevelt</cite>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const blogLink = document.getElementById('blogHomeLink');
+        if (blogLink) {
+            blogLink.addEventListener('click', function(e) {
+                // Set flag in sessionStorage instead of using URL parameter
+                sessionStorage.setItem('showWelcome', 'true');
+            });
+        }
+    });
+</script>
+{% endblock %}

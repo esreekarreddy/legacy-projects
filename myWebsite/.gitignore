@@ -1,0 +1,39 @@
+# Ignore environment files
+.env
+.env.local
+.env.*
+*.env
+
+# Ignore compiled Python files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Ignore virtual environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Ignore IDE/editor-specific files
+.DS_Store  # macOS Finder settings
+.vscode/   # VSCode settings
+.idea/     # PyCharm settings
+
+# Ignore log files and temp files
+*.log
+*.sqlite3
+db.sqlite3
+instance/
+tmp/
+*.swp
+
+# Ignore Node.js dependencies (if applicable)
+node_modules/
+
+# Ignore static files (if generated dynamically)
+staticfiles/
+media/

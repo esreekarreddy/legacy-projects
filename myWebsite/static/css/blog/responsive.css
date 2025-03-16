@@ -1,0 +1,118 @@
+/* Responsive styles for blog */
+
+@media (max-width: 768px) {
+    /* Blog Header */
+    .blog-header {
+        padding: 40px 0;
+    }
+    
+    .blog-header h1 {
+        font-size: 2.2rem;
+    }
+    
+    /* Blog Hero */
+    .blog-hero h1 {
+        font-size: 36px;
+    }
+    
+    /* Blog Posts */
+    .list-item-title {
+        font-size: 1.8rem;
+    }
+    
+    .list-item-preview {
+        font-size: 1rem;
+    }
+    
+    .list-item-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    /* Featured Post */
+    .featured-post {
+        flex-direction: column;
+        padding: 30px;
+    }
+    
+    .featured-post-graphic {
+        height: 100px;
+        margin-top: 20px;
+    }
+    
+    /* Blog Grid */
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Single Post */
+    .post-header .post-title {
+        font-size: 2rem;
+    }
+    
+    .post-content {
+        padding: 25px;
+    }
+    
+    /* Remove width restriction in mobile view */
+    .post-container {
+        max-width: 100%;
+    }
+    
+    /* Hide side decorations on mobile */
+    .side-decoration {
+        display: none;
+    }
+    
+    /* Comment Form */
+    .form-floating-row {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .floating-input {
+        height: 60px;
+    }
+    
+    .comment-form .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    /* Newsletter Section */
+    .newsletter-section {
+        flex-direction: column;
+        padding: 30px;
+    }
+    
+    .newsletter-graphic {
+        height: 100px;
+        margin-top: 20px;
+    }
+    
+    .subscribe-form {
+        flex-direction: column;
+    }
+    
+    .subscribe-form input {
+        border-radius: 30px;
+        margin-bottom: 15px;
+    }
+    
+    .subscribe-btn {
+        border-radius: 30px;
+        width: 100%;
+    }
+    
+    /* Welcome Overlay */
+    .welcome-logo {
+        width: 100px;
+        height: 100px;
+        font-size: 50px;
+    }
+    
+    .welcome-title {
+        font-size: 2rem;
+    }
+}

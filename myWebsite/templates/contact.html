@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+<section class="content contact-content">
+    <div class="contact-header">
+        <h1>Let's Connect</h1>
+        <div class="contact-underline"></div>
+        <p class="contact-intro">I'm always open to interesting conversations, collaborations, and opportunities. Reach out through any of these platforms:</p>
+    </div>
+    
+    <div class="social-links animated-container">
+        <a href="https://twitter.com/esreekarreddy" target="_blank" class="social-card hover-effect"><span class="icon-text">🐦</span> Twitter <span class="connect-arrow">→</span></a>
+        <a href="https://linkedin.com/in/esreekarreddy" target="_blank" class="social-card hover-effect"><span class="icon-text">🔗</span> LinkedIn <span class="connect-arrow">→</span></a>
+        <a href="https://github.com/esreekarreddy" target="_blank" class="social-card hover-effect"><span class="icon-text">🐙</span> GitHub <span class="connect-arrow">→</span></a>
+        <a href="https://instagram.com/esreekarreddy" target="_blank" class="social-card hover-effect"><span class="icon-text">📸</span> Instagram <span class="connect-arrow">→</span></a>
+        <a href="mailto:2000sreekar@gmail.com" class="social-card hover-effect"><span class="icon-text">✉️</span> Email <span class="connect-arrow">→</span></a>
+    </div>
+    
+    <div class="contact-details">
+        <div class="contact-info-card">
+            <h3>Professional Inquiries</h3>
+            <p>Looking for collaboration opportunities, project discussions, or technical consultations? I'm currently focused on:</p>
+            <ul>
+                <li>AI/ML projects and research</li>
+                <li>Web development using modern frameworks</li>
+                <li>Creative technology implementations</li>
+                <li>Academic collaborations</li>
+            </ul>
+            <p>Email: <a href="mailto:2000sreekar@gmail.com">2000sreekar@gmail.com</a></p>
+        </div>
+        
+        <div class="contact-info-card">
+            <h3>Location</h3>
+            <p>Based in Sydney, Australia</p>
+            <p>Available for remote collaboration worldwide</p>
+            <div class="location-map">
+                <div class="map-placeholder">
+                    <div class="pulsing-dot"></div>
+                    <span>Sydney, Australia</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="contact-form-container">
+        <h3>Send Me a Message</h3>
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="What's this about?">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Tell me more about your inquiry..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </div>
+    
+    <div class="contact-message">
+        <p>Whether you have a question, project idea, or just want to say hello—I'd love to hear from you!</p>
+    </div>
+</section>
+{% endblock %}

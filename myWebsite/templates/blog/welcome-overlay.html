@@ -1,0 +1,35 @@
+<div class="welcome-overlay" id="welcomeOverlay">
+    <div class="welcome-content">
+        <div class="welcome-particles">
+            <div class="welcome-particle" style="top: 10%; left: 20%;"></div>
+            <div class="welcome-particle" style="top: 30%; left: 70%;"></div>
+            <div class="welcome-particle" style="top: 70%; left: 15%;"></div>
+            <div class="welcome-particle" style="top: 60%; left: 80%;"></div>
+            <div class="welcome-particle" style="top: 80%; left: 40%;"></div>
+        </div>
+        <div class="welcome-logo">B</div>
+        <h1 class="welcome-title">Welcome to Uncharted Fragments</h1>
+        <p class="welcome-message">
+            Explore my thoughts, ideas, and experiences at the intersection of technology, creativity, and human experience. 
+            Glad to have you here for this journey of discovery.
+        </p>
+        <button class="welcome-continue-btn" id="welcomeContinueBtn">
+            Let's Explore
+        </button>
+    </div>
+</div>
+
+<script>
+    // Emergency backup handler
+    document.addEventListener('DOMContentLoaded', function() {
+        const btn = document.getElementById('welcomeContinueBtn');
+        const overlay = document.getElementById('welcomeOverlay');
+        
+        if (btn && overlay) {
+            btn.onclick = function() {
+                overlay.style.display = 'none';
+                console.log('Emergency button handler worked');
+            }
+        }
+    });
+</script>
